@@ -208,7 +208,7 @@ const User = () => {
 											Guest
 										</button>
 										)}
-										{/* for roles */}
+										
 										{user.role === 'user' && (
 											<button
 												className="flex w-[115px] items-center justify-center gap-1 rounded bg-gradient-to-r from-indigo-600 to-blue-500 py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
