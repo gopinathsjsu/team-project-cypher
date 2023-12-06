@@ -1,72 +1,76 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
-
-function generateGridColumns(lastValue) {
-	let obj = {}
-	for (let i = 0; i <= lastValue; i++) {
-		obj[`${i}`] = `repeat(${i}, minmax(160px, 1fr))`
-	}
-	return obj
-}
-
-function generateGridRow(lastValue) {
-	let obj = {}
-	for (let i = 0; i <= lastValue; i++) {
-		obj[`${i}`] = `max-content repeat(${i}, minmax(5px, 1fr))`
-	}
-	return obj
-}
-
-function generateRowColStart(lastValue) {
-	let obj = {}
-	for (let i = 8; i <= lastValue; i++) {
-		obj[`${i}`] = `${i}`
-	}
-	return obj
-}
-
-function generateRowSpan(lastValue) {
-	let obj = {}
-	for (let i = 7; i <= lastValue; i++) {
-		obj[`span-${i}`] = `span ${i} / span ${i}`
-	}
-	return obj
-}
-
 module.exports = {
-	content: [
-		'./index.html',
-		'./src/**/*.{js,ts,jsx,tsx}',
-		'./node_modules/react-tailwindcss-select/dist/index.esm.js'
+  darkMode: ["class"],
+  content: [
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx}',
+    './src/**/*.{js,jsx}',
 	],
-	safelist: [
-		{ pattern: /grid-rows-./ },
-		{ pattern: /grid-cols-./ },
-		{ pattern: /row-start-./ },
-		{ pattern: /col-start-./ },
-		{ pattern: /row-span./ }
-	],
-	theme: {
-		extend: {
-			fontFamily: {
-				sans: ['IBM Plex Sans Thai', ...defaultTheme.fontFamily.sans]
-			},
-			gridTemplateRows: {
-				...generateGridRow(400)
-			},
-			gridTemplateColumns: {
-				...generateGridColumns(100)
-			},
-			gridRowStart: {
-				...generateRowColStart(300)
-			},
-			gridColumnStart: {
-				...generateRowColStart(300)
-			},
-			gridRow: {
-				...generateRowSpan(300)
-			}
-		}
-	},
-	plugins: []
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
 }
