@@ -53,10 +53,10 @@ const DateSelector = ({ selectedDate, setSelectedDate }) => {
 					isThisDate
 						? 'bg-gradient-to-br from-indigo-800 to-blue-700 text-white'
 						: isToday
-						? 'bg-gradient-to-br from-indigo-100 to-white ring-2 ring-inset ring-indigo-800 hover:from-white hover:to-white'
+						? 'bg-gradient-to-br from-indigo-200 to-indigo-200 ring-2 ring-inset ring-indigo-800 hover:from-white hover:to-white'
 						: isPast(date)
 						? 'bg-gradient-to-br from-gray-600 to-gray-500 text-white hover:from-gray-500 hover:to-gray-400'
-						: 'bg-gradient-to-br from-indigo-100 to-white hover:from-white hover:to-white'
+						: 'bg-gradient-to-br from-indigo-200 to-indigo-200 hover:from-white hover:to-white'
 				}`}
 				onClick={() => {
 					setSelectedDate(date)

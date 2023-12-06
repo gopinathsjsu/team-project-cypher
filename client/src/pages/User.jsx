@@ -60,6 +60,7 @@ const User = () => {
 			})
 			// console.log(response.data)
 			fetchUsers()
+			localStorage.setItem('auth', JSON.stringify(auth))
 			toast.success(`Update ${response.data.data.username} to ${response.data.data.role} successful!`, {
 				position: 'top-center',
 				autoClose: 500,
@@ -94,6 +95,7 @@ const User = () => {
 			})
 			// console.log(response.data)
 			fetchUsers()
+			// getUser()
 			toast.success(`Delete successful!`, {
 				position: 'top-center',
 				autoClose: 500,
@@ -112,38 +114,41 @@ const User = () => {
 	}
 
 	return (
-		<div className="flex min-h-screen flex-col gap-4 bg-gradient-to-br from-indigo-900 to-blue-500 pb-8 text-gray-900 sm:gap-8">
+		<div className="flex flex-col min-h-screen gap-4 pb-8 text-gray-900 bg-gray-900 sm:gap-8">
 			<Navbar />
-			<div className="mx-4 flex h-fit flex-col gap-2 rounded-lg bg-gradient-to-br from-indigo-200 to-blue-100 p-4 drop-shadow-xl sm:mx-8 sm:p-6">
+			<div className="flex flex-col gap-2 p-4 mx-4 rounded-lg h-fit bg-slate-400 drop-shadow-xl sm:mx-8 sm:p-6">
 				<h2 className="text-3xl font-bold text-gray-900">Users</h2>
 				<div className="relative drop-shadow-sm">
-					<div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-						<MagnifyingGlassIcon className="h-5 w-5 stroke-2 text-gray-500" />
+					<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+						<MagnifyingGlassIcon className="w-5 h-5 text-gray-500 stroke-2" />
 					</div>
 					<input
 						type="search"
-						className="block w-full rounded-lg border border-gray-300 p-2 pl-10 text-gray-900"
+						className="block w-full p-2 pl-10 text-gray-900 border border-gray-300 rounded-lg"
 						placeholder="Search username"
 						{...register('search')}
 					/>
 				</div>
 				<div
-					className={`mt-2 grid max-h-[60vh] overflow-auto rounded-md bg-gradient-to-br from-indigo-100 to-white`}
-					style={{ gridTemplateColumns: 'repeat(3, minmax(max-content, 1fr)) max-content max-content' }}
+					className={`mt-2 grid max-h-[60vh] overflow-auto rounded-md bg-gradient-to-br from-indigo-200 to-indigo-200`}
+					style={{ gridTemplateColumns: 'repeat(4, minmax(max-content, 1fr)) max-content max-content' }}
 				>
-					<p className="sticky top-0 bg-gradient-to-br from-gray-800 to-gray-700 px-2 py-1 text-center text-xl font-semibold text-white">
+					<p className="sticky top-0 px-2 py-1 text-xl font-semibold text-center text-white bg-gradient-to-br from-gray-800 to-gray-700">
 						Username
 					</p>
-					<p className="sticky top-0 bg-gradient-to-br from-gray-800 to-gray-700 px-2 py-1 text-center text-xl font-semibold text-white">
+					<p className="sticky top-0 px-2 py-1 text-xl font-semibold text-center text-white bg-gradient-to-br from-gray-800 to-gray-700">
 						Email
 					</p>
-					<p className="sticky top-0 bg-gradient-to-br from-gray-800 to-gray-700 px-2 py-1 text-center text-xl font-semibold text-white">
+					<p className="sticky top-0 px-2 py-1 text-xl font-semibold text-center text-white bg-gradient-to-br from-gray-800 to-gray-700">
 						Role
 					</p>
-					<p className="sticky top-0 bg-gradient-to-br from-gray-800 to-gray-700 px-2 py-1 text-center text-xl font-semibold text-white">
+					<p className="sticky top-0 px-2 py-1 text-xl font-semibold text-center text-white bg-gradient-to-br from-gray-800 to-gray-700">
+						Membership
+					</p>
+					<p className="sticky top-0 px-2 py-1 text-xl font-semibold text-center text-white bg-gradient-to-br from-gray-800 to-gray-700">
 						Ticket
 					</p>
-					<p className="sticky top-0 bg-gradient-to-br from-gray-800 to-gray-700 px-2 py-1 text-center text-xl font-semibold text-white">
+					<p className="sticky top-0 px-2 py-1 text-xl font-semibold text-center text-white bg-gradient-to-br from-gray-800 to-gray-700">
 						Action
 					</p>
 					{users
@@ -151,10 +156,11 @@ const User = () => {
 						.map((user, index) => {
 							return (
 								<Fragment key={index}>
-									<div className="border-t-2 border-indigo-200 px-2 py-1">{user.username}</div>
-									<div className="border-t-2 border-indigo-200 px-2 py-1">{user.email}</div>
-									<div className="border-t-2 border-indigo-200 px-2 py-1">{user.role}</div>
-									<div className="border-t-2 border-indigo-200 px-2 py-1">
+									<div className="px-2 py-1 border-t-2 border-indigo-200">{user.username}</div>
+									<div className="px-2 py-1 border-t-2 border-indigo-200">{user.email}</div>
+									<div className="px-2 py-1 border-t-2 border-indigo-200">{user.role.toUpperCase()}</div>
+									<div className="px-2 py-1 border-t-2 border-indigo-200">{user.membership}</div>
+									<div className="px-2 py-1 border-t-2 border-indigo-200">
 										<button
 											className={`flex items-center justify-center gap-1 rounded bg-gradient-to-r py-1 pl-2 pr-1.5 text-sm font-medium text-white  disabled:from-slate-500 disabled:to-slate-400
 										${
@@ -168,10 +174,41 @@ const User = () => {
 											}}
 										>
 											View {user.tickets.length} Tickets
-											<TicketIcon className="h-6 w-6" />
+											<TicketIcon className="w-6 h-6" />
 										</button>
 									</div>
-									<div className="flex gap-2 border-t-2 border-indigo-200 px-2 py-1">
+									<div className="flex gap-2 px-2 py-1 border-t-2 border-indigo-200">
+										{/* for membership */}
+										{(user.membership === 'FREE' && user.role !== 'guest') && (
+											<button
+												className="flex w-[155px] items-center justify-center gap-1 rounded bg-gradient-to-r from-indigo-600 to-blue-500 py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+												onClick={() => onUpdateUser({ id: user._id, membership: 'PREMIUM' })}
+												disabled={isUpdating}
+											>
+												Set PREMIUM
+												<ChevronDoubleUpIcon className="w-5 h-5" />
+											</button>
+										)}
+										{(user.membership === 'PREMIUM' && user.role !== 'guest') && (
+											<button
+												className="flex w-[155px] items-center justify-center gap-1 rounded bg-gradient-to-r from-indigo-600 to-blue-500 py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+												onClick={() => onUpdateUser({ id: user._id, membership: 'FREE' })}
+												disabled={isUpdating}
+											>
+												Set FREE
+												<ChevronDoubleDownIcon className="w-5 h-5" />
+											</button>
+										)}
+										{(user.membership === 'FREE' && user.role === 'guest') && (
+											<button
+											className="flex w-[155px] items-center justify-center gap-1 rounded bg-gradient-to-r from-indigo-600 to-blue-500 py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+											onClick={() => {}}
+											disabled={true}
+										>
+											Guest
+										</button>
+										)}
+										{/* for roles */}
 										{user.role === 'user' && (
 											<button
 												className="flex w-[115px] items-center justify-center gap-1 rounded bg-gradient-to-r from-indigo-600 to-blue-500 py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
@@ -179,7 +216,7 @@ const User = () => {
 												disabled={isUpdating}
 											>
 												Set Admin
-												<ChevronDoubleUpIcon className="h-5 w-5" />
+												<ChevronDoubleUpIcon className="w-5 h-5" />
 											</button>
 										)}
 										{user.role === 'admin' && (
@@ -189,7 +226,16 @@ const User = () => {
 												disabled={isUpdating}
 											>
 												Set User
-												<ChevronDoubleDownIcon className="h-5 w-5" />
+												<ChevronDoubleDownIcon className="w-5 h-5" />
+											</button>
+										)}
+										{user.role === 'guest' && (
+											<button
+												className="flex w-[115px] items-center justify-center gap-1 rounded bg-gradient-to-r from-indigo-600 to-blue-500 py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+												onClick={() => {}}
+												disabled={true}
+											>
+												Guest
 											</button>
 										)}
 										<button
@@ -198,7 +244,7 @@ const User = () => {
 											disabled={isDeleting}
 										>
 											DELETE
-											<TrashIcon className="h-5 w-5" />
+											<TrashIcon className="w-5 h-5" />
 										</button>
 									</div>
 								</Fragment>
@@ -216,9 +262,9 @@ const User = () => {
 									return (
 										<div className="flex flex-col" key={index}>
 											<ShowtimeDetails showtime={ticket.showtime} />
-											<div className="flex h-full flex-col justify-between rounded-b-lg bg-gradient-to-br from-indigo-100 to-white text-center text-lg drop-shadow-lg md:flex-row">
-												<div className="flex h-full flex-col items-center gap-x-4 px-4 py-2 md:flex-row">
-													<p className="whitespace-nowrap font-semibold">Seats : </p>
+											<div className="flex flex-col justify-between h-full text-lg text-center rounded-b-lg bg-gradient-to-br from-indigo-200 to-indigo-200 drop-shadow-lg md:flex-row">
+												<div className="flex flex-col items-center h-full px-4 py-2 gap-x-4 md:flex-row">
+													<p className="font-semibold whitespace-nowrap">Seats : </p>
 													<p>
 														{ticket.seats.map((seat) => seat.row + seat.number).join(', ')}
 													</p>
