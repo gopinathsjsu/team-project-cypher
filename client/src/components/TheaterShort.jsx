@@ -51,7 +51,7 @@ const TheaterShort = ({ theaterId, movies, selectedDate, filterMovie, rounded = 
 
 	return (
 		<div
-			className={`flex flex-col bg-gradient-to-br from-indigo-100 to-white sm:flex-row sm:rounded-tr-none ${
+			className={`flex flex-col bg-gradient-to-br from-indigo-200 to-indigo-200 sm:flex-row sm:rounded-tr-none ${
 				rounded && 'rounded-b-md'
 			}`}
 		>
@@ -66,7 +66,7 @@ const TheaterShort = ({ theaterId, movies, selectedDate, filterMovie, rounded = 
 				</div>
 				{auth.role === 'admin' && (
 					<div
-						className={`flex w-full min-w-[160px] flex-row justify-center gap-x-4 border-b-2 border-indigo-200 bg-gradient-to-br from-indigo-100 to-white px-4 py-0.5 text-sm font-bold sm:w-fit sm:flex-col sm:border-none`}
+						className={`flex w-full min-w-[160px] flex-row justify-center gap-x-4 border-b-2 border-indigo-200 bg-gradient-to-br from-indigo-200 to-indigo-200 px-4 py-0.5 text-sm font-bold sm:w-fit sm:flex-col sm:border-none`}
 					>
 						<div className="flex items-center gap-2">
 							<ArrowsUpDownIcon className="h-5 w-5" />

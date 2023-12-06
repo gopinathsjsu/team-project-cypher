@@ -195,7 +195,7 @@ const TheaterListsByCinema = ({ cinemas, selectedCinemaIndex, setSelectedCinemaI
 	}
 
 	return (
-		<div className="mx-4 h-fit rounded-md bg-gradient-to-br from-indigo-200 to-blue-100 text-gray-900 drop-shadow-md sm:mx-8">
+		<div className="mx-4 h-fit rounded-md bg-slate-400 text-gray-900 drop-shadow-md sm:mx-8">
 			<div className="flex items-center justify-center gap-2 rounded-t-md bg-gradient-to-br from-gray-900 to-gray-800 px-2 py-1.5 text-center text-2xl font-semibold text-white sm:py-2">
 				{isEditing ? (
 					<input
@@ -259,7 +259,7 @@ const TheaterListsByCinema = ({ cinemas, selectedCinemaIndex, setSelectedCinemaI
 				<form className="flex flex-col gap-4" onSubmit={handleSubmit(onIncreaseTheater)}>
 					<h2 className="text-3xl font-bold">Theaters</h2>
 					{auth.role === 'admin' && (
-						<div className="flex w-full flex-wrap justify-between gap-4 rounded-md bg-gradient-to-br from-indigo-100 to-white p-4">
+						<div className="flex w-full flex-wrap justify-between gap-4 rounded-md bg-gradient-to-br from-indigo-200 to-indigo-200 p-4">
 							<h3 className="flex items-center text-xl font-bold">Add Theater</h3>
 							<div className="flex grow flex-col gap-4 sm:justify-end md:flex-row">
 								<div className="flex flex-wrap justify-end gap-4">
