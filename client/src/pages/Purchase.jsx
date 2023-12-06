@@ -94,7 +94,7 @@ const Purchase = () => {
   }, [showtime]);
 
   const onUseRewards = () => {
-    console.log("ddjndjnjnj", useRewards)
+    // console.log("ddjndjnjnj", useRewards)
     if (!useRewards) {
       setNewTotalCostAfterRewards(newTotalCostAfterRewards - pointsToDeduct)
       console.log(`In the useRewards true , total cost $${newTotalCostAfterRewards}`);
