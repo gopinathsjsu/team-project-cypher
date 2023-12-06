@@ -181,7 +181,7 @@ const Theater = ({ theaterId, movies, selectedDate, filterMovie, setSelectedDate
 					</div>
 				)}
 			</div>
-			<div className="flex flex-col gap-4 rounded-b-md rounded-tr-md bg-gradient-to-br from-indigo-100 to-white py-4 md:rounded-tr-none">
+			<div className="flex flex-col gap-4 rounded-b-md rounded-tr-md bg-gradient-to-br from-indigo-200 to-indigo-200 py-4 md:rounded-tr-none">
 				{auth.role === 'admin' && (
 					<>
 						<form
