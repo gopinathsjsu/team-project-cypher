@@ -14,7 +14,7 @@ const ScheduleTable = ({ cinema, selectedDate }) => {
 		showtime = new Date(showtime)
 		const hour = showtime.getHours()
 		const min = showtime.getMinutes()
-		// console.log(hour, min, Math.round((60 * hour + min) / 5))
+	
 		return Math.round((60 * hour + min) / 5)
 	}
 
