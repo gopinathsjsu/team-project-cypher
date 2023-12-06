@@ -13,9 +13,9 @@ import Search from './pages/Search'
 import Showtime from './pages/Showtime'
 import Tickets from './pages/Tickets'
 import User from './pages/User'
+import Guest from './pages/Guest'
 
-axios.defaults.baseURL = 'https://bookmyticket-api.vercel.app' || 'http://localhost:8080'
-console.log(axios.defaults.baseURL)
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 axios.defaults.withCredentials = true
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
+				<Route path="/guest" element={<Guest />} />
 				<Route path="/cinema" element={<Cinema />} />
 				<Route
 					path="/movie"
