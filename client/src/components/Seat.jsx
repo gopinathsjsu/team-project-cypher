@@ -21,10 +21,7 @@ const Seat = ({ seat, setSelectedSeats, selectable, isAvailable }) => {
 			className="flex h-8 w-8 items-center justify-center"
 			onClick={handleClick}
             disabled={!selectable} // Disable button if not selectable
-			// onClick={() =>. {
-			/// 	setIsSelected(false)
-			/// 	setSelectedSeats((prev) => prev.filter((e) => e !== `${seat.row}${seat.number}`))
-			// }}
+			
 		>
 			<div className="flex h-6 w-6 items-center justify-center rounded bg-blue-500 drop-shadow-md">
 				<CheckIcon className="h-5 w-5 stroke-[3] text-white" />
