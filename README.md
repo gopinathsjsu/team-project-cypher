@@ -40,7 +40,7 @@ https://github.com/gopinathsjsu/team-project-cypher
 
 ## Architecture Diagram
 
-![ArchitectureDiagram](link)
+![ArchitectureDiagram](https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/architecture_daigram.jpeg)
 
 ## Class Diagram
 
