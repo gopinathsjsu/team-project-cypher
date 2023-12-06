@@ -29,7 +29,7 @@ const Purchase = () => {
   const adjustedTicketPrice = isDiscountApplicable ? TICKET_PRICE - discount : TICKET_PRICE;
   console.log("adjusted price",adjustedTicketPrice)
   const ticketPrice = adjustedTicketPrice * selectedSeats.length;
-  console.log("ticket price",ticketPrice)
+  // console.log("ticket price",ticketPrice)
   // const ticketPrice = TICKET_PRICE * selectedSeats.length;
   const totalServiceFee = SERVICE_FEE * selectedSeats.length;
   const maxDeductiblePoints = auth.reward_points/ 10;
