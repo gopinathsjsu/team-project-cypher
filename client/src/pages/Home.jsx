@@ -25,7 +25,7 @@ const Home = () => {
 			} else {
 				response = await axios.get('/movie/showing')
 			}
-			// console.log(response.data.data)
+	
 			setMovies(response.data.data)
 		} catch (error) {
 			console.error(error)
