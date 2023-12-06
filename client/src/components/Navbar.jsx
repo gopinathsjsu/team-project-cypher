@@ -82,9 +82,7 @@ const Navbar = () => {
 		localStorage.setItem('auth', JSON.stringify(auth))
 	}, [auth])
 
-	// useEffect(() => {
-	// 	fetchUsers()
-	// }, [])
+	
 
   const actionButton = auth.membership === 'PREMIUM'
     ? { text: 'Yes', className: 'bg-red-500 text-white' }
