@@ -48,7 +48,7 @@ https://github.com/gopinathsjsu/team-project-cypher
 
 ## Deployment Diagram
 
-![DeploymentDiagram]([link](https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Deployment%20Diagram.jpg))
+![DeploymentDiagram](https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Deployment%20Diagram.jpg)
 
 ## UI Wireframe
 
