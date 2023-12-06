@@ -11,6 +11,7 @@ import ShowtimeDetails from '../components/ShowtimeDetails'
 import { AuthContext } from '../context/AuthContext'
 
 const Showtime = () => {
+		
 	const { auth } = useContext(AuthContext)
 	const { id } = useParams()
 	const [showtime, setShowtime] = useState({})
@@ -64,6 +65,25 @@ const Showtime = () => {
 		fetchShowtime()
 	}, [])
 
+	const handleSeatSelection = (row, number) => {
+        const seatIdentifier = `${row}${number}`;
+        if (selectedSeats.includes(seatIdentifier)) {
+            setSelectedSeats(currentSeats => currentSeats.filter(seat => seat !== seatIdentifier));
+        } else if (selectedSeats.length < 8) {
+            setSelectedSeats(currentSeats => [...currentSeats, seatIdentifier]);
+        } else {
+            toast.warn('You can only select up to 8 seats.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+    };
+
 	const row = showtime?.theater?.seatPlan?.row
 	let rowLetters = []
 	if (row) {
@@ -94,13 +114,13 @@ const Showtime = () => {
 	})
 
 	return (
-		<div className="flex min-h-screen flex-col gap-4 bg-gradient-to-br from-indigo-900 to-blue-500 pb-8 sm:gap-8">
+		<div className="flex min-h-screen flex-col gap-4 bg-gray-900 pb-8 sm:gap-8">
 			<Navbar />
-			<div className="mx-4 h-fit rounded-lg bg-gradient-to-br from-indigo-200 to-blue-100 p-4 drop-shadow-xl sm:mx-8 sm:p-6">
+			<div className="mx-4 h-fit rounded-lg bg-slate-400 p-4 drop-shadow-xl sm:mx-8 sm:p-6">
 				{showtime.showtime ? (
 					<>
 						<ShowtimeDetails showtime={showtime} showDeleteBtn={true} fetchShowtime={fetchShowtime} />
-						<div className="flex flex-col justify-between rounded-b-lg bg-gradient-to-br from-indigo-100 to-white text-center text-lg drop-shadow-lg md:flex-row">
+						<div className="flex flex-col justify-between rounded-b-lg bg-gradient-to-br from-indigo-200 to-indigo-200 text-center text-lg drop-shadow-lg md:flex-row">
 							<div className="flex flex-col items-center gap-x-4 px-4 py-2 md:flex-row">
 								{!isPast && <p className="font-semibold">Selected Seats : </p>}
 								<p className="text-start">{sortedSelectedSeat.join(', ')}</p>
@@ -123,7 +143,7 @@ const Showtime = () => {
 							)}
 						</div>
 
-						<div className="mx-auto mt-4 flex flex-col items-center rounded-lg bg-gradient-to-br from-indigo-100 to-white p-4 text-center drop-shadow-lg">
+						<div className="mx-auto mt-4 flex flex-col items-center rounded-lg bg-gradient-to-br from-indigo-200 to-indigo-200 p-4 text-center drop-shadow-lg">
 							<div className="w-full rounded-lg bg-white">
 								<div className="bg-gradient-to-r from-indigo-800 to-blue-700 bg-clip-text text-xl font-bold text-transparent">
 									Screen
@@ -151,18 +171,19 @@ const Showtime = () => {
 														<p className="w-8 text-xl font-semibold">{rowLetter}</p>
 													</div>
 													{colNumber.map((col, index) => {
+														const seatIdentifier = `${rowLetter}${col}`;
+														const isSeatCurrentlySelected = selectedSeats.includes(seatIdentifier);
+														const isSeatSelectable = selectedSeats.length < 8 || isSeatCurrentlySelected;
 														return (
 															<Seat
-																key={index}
-																seat={{ row: rowLetter, number: col }}
-																setSelectedSeats={setSelectedSeats}
-																selectable={!isPast}
-																isAvailable={
-																	!showtime.seats.find(
-																		(seat) =>
-																			seat.row === rowLetter &&
-																			seat.number === col
-																	)
+                            									key={`${rowLetter}${col}`}
+                            									seat={{ row: rowLetter, number: col }}
+                            									setSelectedSeats={() => handleSeatSelection(rowLetter, col)}
+                            									selectable={!isPast && isSeatSelectable}
+                            									isAvailable={
+                                									!showtime.seats.find(
+                                    								(seat) => seat.row === rowLetter && seat.number === col
+               														)
 																}
 															/>
 														)
@@ -180,7 +201,7 @@ const Showtime = () => {
 						{auth.role === 'admin' && (
 							<>
 								<h2 className="mt-4 text-2xl font-bold">Booked Seats</h2>
-								<div className="mt-2 flex gap-2 rounded-md bg-gradient-to-br from-indigo-100 to-white p-4">
+								<div className="mt-2 flex gap-2 rounded-md bg-gradient-to-br from-indigo-200 to-indigo-200 p-4">
 									<div className="flex grow flex-col">
 										<h4 className="text-lg font-bold text-gray-800">Row</h4>
 										<Select
@@ -236,7 +257,7 @@ const Showtime = () => {
 									</div>
 								</div>
 								<div
-									className={`mt-4 grid max-h-screen w-full overflow-auto rounded-md bg-gradient-to-br from-indigo-100 to-white`}
+									className={`mt-4 grid max-h-screen w-full overflow-auto rounded-md bg-gradient-to-br from-indigo-200 to-indigo-200`}
 									style={{
 										gridTemplateColumns: 'repeat(4, minmax(max-content, 1fr))'
 									}}
@@ -302,6 +323,8 @@ const Showtime = () => {
 			</div>
 		</div>
 	)
+ 
 }
+
 
 export default Showtime
