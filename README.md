@@ -9,7 +9,7 @@ https://cinemax-movies.vercel.app/
 - Shlok Patel
 - Harsha Vardhan Garine
 
-### Summary of Contributions
+## Summary of Contributions
 
 https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Summary%20of%20Contributions.pdf
 
@@ -59,7 +59,7 @@ https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Weekly%2
 
 https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/XP%20Values.pdf
 
-### Feature set
+## Feature set
 
 https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Feature%20Set.pdf
 
