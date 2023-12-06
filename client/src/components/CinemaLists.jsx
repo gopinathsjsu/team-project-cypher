@@ -89,7 +89,7 @@ const CinemaLists = ({
 
 	return (
 		<>
-			<div className="mx-4 flex h-fit flex-col gap-4 rounded-md bg-gradient-to-br from-indigo-200 to-blue-100 p-4 text-gray-900 drop-shadow-xl sm:mx-8 sm:p-6">
+			<div className="mx-4 flex h-fit flex-col gap-4 rounded-md bg-slate-400 p-4 text-gray-900 drop-shadow-xl sm:mx-8 sm:p-6">
 				<form
 					className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2"
 					onSubmit={handleSubmit(onAddCinema)}
