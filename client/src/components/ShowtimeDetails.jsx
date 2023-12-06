@@ -13,6 +13,10 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 	const [isReleasingShowtime, setIsReleasingShowtime] = useState(false)
 	const [isUnreleasingShowtime, setIsUnreleasingShowtime] = useState(false)
 
+	
+	
+	console.log(new Date(showtime.showtime))
+
 	const handleDelete = () => {
 		const confirmed = window.confirm(`Do you want to delete this showtime, including its tickets?`)
 		if (confirmed) {
@@ -186,7 +190,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 				</div>
 			</div>
 			<div className="flex flex-col md:flex-row">
-				<div className="flex grow flex-col gap-4 bg-gradient-to-br from-indigo-100 to-white py-2 drop-shadow-lg sm:py-4">
+				<div className="flex grow flex-col gap-4 bg-gradient-to-br from-indigo-200 to-indigo-200 py-2 drop-shadow-lg sm:py-4">
 					<div className="flex items-center">
 						<img src={showtime?.movie?.img} className="w-32 px-4 drop-shadow-md" />
 						<div className="flex flex-col">
@@ -202,7 +206,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 					</div>
 				</div>
 				<div className="flex flex-col">
-					<div className="flex h-full min-w-max flex-col items-center justify-center gap-y-1 bg-gradient-to-br from-indigo-100 to-white py-2 text-center text-xl font-semibold drop-shadow-lg sm:py-4 sm:text-2xl md:items-start">
+					<div className="flex h-full min-w-max flex-col items-center justify-center gap-y-1 bg-gradient-to-br from-indigo-200 to-indigo-200 py-2 text-center text-xl font-semibold drop-shadow-lg sm:py-4 sm:text-2xl md:items-start">
 						<p className="mx-4 text-lg leading-4 ">
 							{showtime?.showtime &&
 								`${new Date(showtime?.showtime).toLocaleString('default', { weekday: 'long' })}`}
