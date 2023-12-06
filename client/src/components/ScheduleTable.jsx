@@ -14,7 +14,7 @@ const ScheduleTable = ({ cinema, selectedDate }) => {
 		showtime = new Date(showtime)
 		const hour = showtime.getHours()
 		const min = showtime.getMinutes()
-		console.log(hour, min, Math.round((60 * hour + min) / 5))
+		// console.log(hour, min, Math.round((60 * hour + min) / 5))
 		return Math.round((60 * hour + min) / 5)
 	}
 
@@ -81,7 +81,7 @@ const ScheduleTable = ({ cinema, selectedDate }) => {
 			<div
 				className={`grid min-h-[50vh] max-h-screen overflow-x-auto grid-cols-${cinema.theaters?.length.toString()} grid-rows-${
 					gridRows + shiftEnd
-				} rounded-md bg-gradient-to-br from-indigo-100 to-white`}
+				} rounded-md bg-gradient-to-br from-indigo-200 to-indigo-200`}
 				{...events}
 				ref={ref}
 			>

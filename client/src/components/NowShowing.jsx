@@ -3,7 +3,7 @@ import Loading from './Loading'
 
 const NowShowing = ({ movies, selectedMovieIndex, setSelectedMovieIndex, auth, isFetchingMoviesDone }) => {
 	return (
-		<div className="mx-4 flex flex-col rounded-md bg-gradient-to-br from-indigo-200 to-blue-100 p-4 text-gray-900 drop-shadow-md sm:mx-8 sm:p-6">
+		<div className="mx-4 flex flex-col rounded-md bg-slate-400 p-4 text-gray-900 drop-shadow-md sm:mx-8 sm:p-6">
 			<h2 className="text-3xl font-bold">Now Showing</h2>
 			{isFetchingMoviesDone ? (
 				movies.length ? (
