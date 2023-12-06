@@ -1,4 +1,4 @@
-# Movie Theater Club Application by Team - Cypher
+# Cinemax (Movie Theater Application) by Team - Cypher
 
 https://cinemax-movies.vercel.app/
 
@@ -11,7 +11,10 @@ https://cinemax-movies.vercel.app/
 
 ### Summary of Contributions
 
-## Github Project Board
+https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Summary%20of%20Contributions.pdf
+
+
+## Github Project Repo
 
 https://github.com/gopinathsjsu/team-project-cypher
 
@@ -23,28 +26,17 @@ https://github.com/gopinathsjsu/team-project-cypher
 - Cloud : AWS EC2 Autoscaling with Load Balancer
 - Hosting : Vercel
 
-## XP Values
+## Use Case Diagram
 
-1. Communication
-
-- WhatsApp was our primary means of communication.
-- To keep track of our progress, everyone on our team collaborated at every level of the project.
-- We held a weekly sprint on Monday to keep track of our progress up to that point.
-- During weekly sprints, we attempted to identify our roadblocks and eradicate them in the following sprint.
-- In holding meetings, our team used a hybrid communication method that included in-person meetings as well as online sessions through Google meet.
-
-2. Feedback
-
-- At the end of each sprint, a few minutes were set aside for feedback to discuss whether any team members needed to improve.
-- We found areas for improvement through frequent input and revised the practices previously followed.
+![UseCaseDiagram](https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Use%20Case.jpg)
 
 ## Architecture Diagram
 
-![ArchitectureDiagram](https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/architecture_daigram.jpeg)
+![ArchitectureDiagram](https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Architecture%20Diagram.jpeg)
 
-## Class Diagram
+## Component Diagram
 
-![ClassDiagram](link)
+![ComponentDiagram](https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Component%20Diagram.png)
 
 ## Deployment Diagram
 
@@ -52,36 +44,28 @@ https://github.com/gopinathsjsu/team-project-cypher
 
 ## UI Wireframe
 
-![WireFrame](link)
+https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/UI%20Wireframes.pdf
 
-### Link to team's GitHub Repo
+## Sprint Task Sheet
 
-https://github.com/gopinathsjsu/team-project-cypher
+https://docs.google.com/spreadsheets/d/1Z7RirO_3HtfIrzDnkWeqUFO0ieubGx7J1crzrx-_WG4/edit?usp=sharing
 
-### Link to team's Project Board
 
-<!-- Add project board -->
+## Project Journal (Weekly Scrum Report)
 
-### Link to team's Project Journal
+https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Weekly%20Scrum%20Report.pdf
 
-<!--  -->
+## XP Values
 
-### Link to team's Sprint Task Sheet
-
-<!-- Add task sheet -->
-
-### Week Wise Design Decisions
-
-1. Technologies to be used for frontend - HTML, CSS, Bootstrap, React JS, React-bootstrap or Material UI? Designed Use Case diagram
-2. Technologies to use for the backend - Python Flask, Java Spring Boot or Node JS? Designed Flow and Class diagram
-3. Database to be used - MySQL or MongoDB
-4. Started building wireframe and API
-5. Started working on UI
+https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/XP%20Values.pdf
 
 ### Feature set
 
-1. 3 Personas: Theater Employees, Members and General Users to access the system with role based authentication.
-2. ## All Users :
-3. ## Enrolled and logged in Members:
+https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Feature%20Set.pdf
 
-4. ## Theater Employees:
+
+### Link to team's Project Board
+
+https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Task%20Board.pdf
+
+
