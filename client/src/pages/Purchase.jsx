@@ -1,4 +1,3 @@
-
 import { TicketIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
@@ -95,7 +94,7 @@ const Purchase = () => {
   }, [showtime]);
 
   const onUseRewards = () => {
-    console.log("ddjndjnjnj", useRewards)
+    // console.log("ddjndjnjnj", useRewards)
     if (!useRewards) {
       setNewTotalCostAfterRewards(newTotalCostAfterRewards - pointsToDeduct)
       console.log(`In the useRewards true , total cost $${newTotalCostAfterRewards}`);
