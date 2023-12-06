@@ -7,7 +7,7 @@ https://cinemax-movies.vercel.app/
 - Darshan Patel
 - Neel Patel
 - Shlok Patel
-- Harshavardhan Garine
+- Harsha Vardhan Garine
 
 ### Summary of Contributions
 
