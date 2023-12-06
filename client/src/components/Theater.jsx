@@ -39,7 +39,7 @@ const Theater = ({ theaterId, movies, selectedDate, filterMovie, setSelectedDate
 			} else {
 				response = await axios.get(`/theater/${theaterId}`)
 			}
-			// console.log(response.data.data)
+			
 			setTheater(response.data.data)
 		} catch (error) {
 			console.error(error)
