@@ -31,7 +31,7 @@ const CinemaLists = ({
 					Authorization: `Bearer ${auth.token}`
 				}
 			})
-			// console.log(response.data)
+			
 			reset()
 			fetchCinemas(data.name)
 			toast.success('Add cinema successful!', {
