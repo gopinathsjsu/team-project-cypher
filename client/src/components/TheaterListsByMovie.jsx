@@ -102,10 +102,10 @@ const TheaterListsByMovie = ({ movies, selectedMovieIndex, setSelectedMovieIndex
 	return (
 		<>
 			<CinemaLists {...props} />
-			<div className="mx-4 h-fit rounded-md bg-gradient-to-br from-indigo-200 to-blue-100 text-gray-900 drop-shadow-md sm:mx-8">
+			<div className="mx-4 h-fit rounded-md bg-slate-400 text-gray-900 drop-shadow-md sm:mx-8">
 				<div className="flex flex-col gap-6 p-4 sm:p-6">
 					<DateSelector selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-					<div className="flex flex-col gap-4 rounded-md bg-gradient-to-br from-indigo-100 to-white py-4">
+					<div className="flex flex-col gap-4 rounded-md bg-gradient-to-br from-indigo-200 to-indigo-200 py-4">
 						<div className="flex items-center">
 							<img src={movies[selectedMovieIndex].img} className="w-32 px-4 drop-shadow-md" />
 							<div>
