@@ -1,4 +1,3 @@
-
 import { TicketIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
