@@ -64,7 +64,7 @@ https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/XP%20Val
 https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Feature%20Set.pdf
 
 
-### Link to team's Project Board
+## Project Board
 
 https://github.com/gopinathsjsu/team-project-cypher/blob/main/documents/Task%20Board.pdf
 
